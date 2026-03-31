@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evolutionary-sde"
+version = "0.1.0"
+description = "LangGraph layered interviewer: algorithms → Unicode → scale → distributed design"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.32.0",
+  "langgraph>=0.2.0",
+  "langchain-core>=0.3.0",
+  "pydantic>=2.9.0",
+  "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.0.0"]
+
+[project.scripts]
+evolutionary-sde-api = "evolutionary_sde.api.main:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
